@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>일정관리</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --yellow:#F5C443;--yellow-soft:#FCE4A0;--yellow-pale:#FFF6DB;
@@ -20,202 +20,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{font-family:'Nunito',-apple-system,sans-serif;color:var(--ink);background:linear-gradient(160deg,#FFF1DE 0%,#F8DAC0 50%,#F1C9A8 100%);min-height:100vh;-webkit-font-smoothing:antialiased;}
 body.dark{background:linear-gradient(160deg,#1A1812 0%,#221E15 100%);color:var(--d-ink);}
-
-/* ── 에디토리얼 라일락 테마 ── */
-body.editorial{
-  --yellow:#C8AED4;--yellow-soft:#D9C3E0;--yellow-pale:#ECDFF0;
-  --peach:#5E3A24;--peach-soft:#B58F76;--peach-pale:#F4EEE2;
-  --sage:#5A8C5F;--sage-soft:#A9C9AC;--sage-pale:#F4EEE2;
-  --lav:#B58FC9;--lav-soft:#D9C3E0;--lav-pale:#ECDFF0;
-  --rose:#C04848;--rose-soft:#E0A6A6;--rose-pale:#F4EEE2;
-  --cream:#FBF7EE;--cream-2:#F4EEE2;
-  --ink:#1F1A1A;--ink-2:#4A4040;--ink-3:#8B807B;
-  --line:rgba(31,26,26,0.16);
-  background:radial-gradient(circle at 92% 4%,#ECDFF0 0,transparent 28%),radial-gradient(circle at 4% 96%,#ECDFF0 0,transparent 24%),#FBF7EE !important;
-  font-family:'Manrope','Apple SD Gothic Neo',sans-serif;letter-spacing:-0.01em;color:var(--ink);
-}
-/* 헤딩/타이틀 — Manrope 800 */
-body.editorial .whn-label,body.editorial .llc-date,body.editorial .sp-title,body.editorial .brand,body.editorial .sb-title,body.editorial .sb-user-name,body.editorial .month-nav-label,body.editorial .ml-title,body.editorial .day-card-day,body.editorial .login-title{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-0.02em;}
-/* 메모 영역만 손글씨 */
-body.editorial .sp-card .memo-area{font-family:'Caveat',cursive;font-size:17px;line-height:1.45;min-height:96px;padding:2px 0 4px;color:#1F1A1A;}
-body.editorial .sp-card.s-memo-work,body.editorial .sp-card.s-memo-life{padding-bottom:12px;}
-/* 카드: 얇은 검정 보더 + 그림자 제거 */
-body.editorial .left-live-card,body.editorial .sp-card,body.editorial .month-list-card,body.editorial .month-grid,body.editorial .day-card,body.editorial .login-card{border:1.5px solid #1F1A1A !important;box-shadow:none !important;border-radius:12px !important;}
-body.editorial .sp-card{border-radius:10px !important;}
-body.editorial .day-card{border-radius:10px !important;}
-/* 헤더/필터/탭 */
-body.editorial .view-tabs,body.editorial .week-header-nav{background:#FBF7EE;border:1.5px solid #1F1A1A;border-radius:999px;backdrop-filter:none;}
-body.editorial .view-tab.active{background:#1F1A1A;color:#D9C3E0;}
-body.editorial .left-filter-btn{background:#FBF7EE;border:1.5px solid #1F1A1A;color:#4A4040;font-weight:800;}
-body.editorial .left-filter-btn.active{background:#1F1A1A;color:#D9C3E0;border-color:#1F1A1A;box-shadow:none;}
-body.editorial .nav-btn{background:#FBF7EE;border:1.5px solid #1F1A1A;color:#1F1A1A;}
-body.editorial .nav-today-btn{background:#1F1A1A;color:#D9C3E0;}
-body.editorial .left-add-btn{background:#5E3A24;color:#D9C3E0;border:1.5px solid #1F1A1A;}
-body.editorial .menu-btn{background:#FBF7EE;border:1.5px solid #1F1A1A;color:#1F1A1A;}
-body.editorial .brand-mark{background:#1F1A1A;color:#D9C3E0;}
-/* LIVE 카드: 라일락 배경 */
-body.editorial .left-live-card{background:#D9C3E0 !important;}
-body.editorial .llc-tag{color:#C04848;}
-body.editorial .llc-tag::before{background:#C04848;}
-body.editorial .llc-time{font-family:'DM Mono',monospace;color:#1F1A1A;}
-body.editorial .llc-divider{background:rgba(31,26,26,0.2);}
-/* sp-card 변주: 크림/라일락 톤 안에서 */
-body.editorial .sp-card.s-daily{background:#F4EEE2;}
-body.editorial .sp-card.s-last{background:#ECDFF0;}
-body.editorial .sp-card.s-this{background:#F5ECF7;}
-body.editorial .sp-card.s-memo-work{background:#FBF7EE;}
-body.editorial .sp-card.s-memo-life{background:#FBF7EE;}
-body.editorial .sp-add{background:#FBF7EE;border:1.5px solid #1F1A1A;color:#1F1A1A;}
-/* ===== 주간 요일 카드 — 평일/주말 통일 ===== */
-body.editorial .day-card[data-dow="1"],
-body.editorial .day-card[data-dow="2"],
-body.editorial .day-card[data-dow="3"],
-body.editorial .day-card[data-dow="4"],
-body.editorial .day-card[data-dow="5"]{background:#ECDFF0 !important;box-shadow:none !important;}
-body.editorial .day-card[data-dow="6"],
-body.editorial .day-card[data-dow="0"]{background:#F4EEE2 !important;box-shadow:none !important;}
-body.editorial .day-card.today-card,
-body.editorial .day-card[data-today="1"]{background:#D9C3E0 !important;}
-body.editorial .day-card[data-dow="1"] .dot,
-body.editorial .day-card[data-dow="2"] .dot,
-body.editorial .day-card[data-dow="3"] .dot,
-body.editorial .day-card[data-dow="4"] .dot,
-body.editorial .day-card[data-dow="5"] .dot{background:#5E3A24 !important;}
-body.editorial .day-card[data-dow="6"] .dot,
-body.editorial .day-card[data-dow="0"] .dot{background:#5A8C5F !important;}
-body.editorial .day-card[data-today="1"] .dot{background:#C04848 !important;}
-body.editorial .day-card-pill{background:#FBF7EE;border:1.5px solid #1F1A1A;color:#1F1A1A;}
-/* 월간 그리드 */
-body.editorial .month-grid{background:#FBF7EE !important;}
-body.editorial .month-day{border-color:rgba(31,26,26,0.12);}
-body.editorial .month-day:hover{background:rgba(217,195,224,0.35);}
-body.editorial .month-day.today-cell{background:#D9C3E0;}
-body.editorial .month-day.today-cell .day-num{background:#1F1A1A;color:#D9C3E0;}
-body.editorial .month-day.sun-col .day-num{color:#C04848;}
-body.editorial .month-day.sat-col .day-num{color:#5A8C5F;}
-body.editorial .month-dow{background:#F4EEE2;color:#1F1A1A;font-weight:800;}
-body.editorial .month-dow.sun{color:#C04848;}
-body.editorial .month-dow.sat{color:#5A8C5F;}
-/* 월간 리스트 */
-body.editorial .month-list-card{background:#FBF7EE;}
-body.editorial .ml-item:hover{background:#F5ECF7;}
-body.editorial .ml-date{color:#1F1A1A;font-weight:800;}
-/* 사이드바 */
-body.editorial .sidebar{background:#FBF7EE;}
-body.editorial .sb-header{border-color:rgba(31,26,26,0.12);}
-body.editorial .sb-user-card{background:#ECDFF0;}
-body.editorial .sb-avatar{background:#5E3A24;color:#D9C3E0;}
-body.editorial .sb-sync-card{background:#F4EEE2;}
-body.editorial .sb-btn{border:1.5px solid #1F1A1A;color:#1F1A1A;}
-body.editorial .sb-btn:hover{background:#ECDFF0;border-color:#1F1A1A;}
-body.editorial .sb-btn.danger{color:#C04848;border-color:rgba(192,72,72,0.3);}
-body.editorial .sb-btn.danger:hover{background:rgba(192,72,72,0.08);}
-/* 모달 */
-body.editorial .modal-box{background:#FBF7EE !important;border:1.5px solid #1F1A1A;border-radius:14px !important;}
-body.editorial .color-dot{border:1.5px solid #1F1A1A;}
-/* 모바일 바 */
-body.editorial .mob-bar{background:#FBF7EE;border-bottom:1.5px solid #1F1A1A;}
-body.editorial .mob-vtab.active,body.editorial .mob-fbtn.active{background:#1F1A1A;color:#D9C3E0;}
-body.editorial .mob-tabbar{background:#FBF7EE;border-top:1.5px solid #1F1A1A;}
-body.editorial .mtb-fab{background:#5E3A24;color:#D9C3E0;}
-/* ── 미니멀 (B&W) 테마 ── */
-body.minimal{
-  --yellow:#F5F5F5;--yellow-soft:#E5E5E5;--yellow-pale:#FAFAFA;
-  --peach:#2E5BBF;--peach-soft:#A8C2F0;--peach-pale:#F5F5F5;
-  --sage:#0A0A0A;--sage-soft:#525252;--sage-pale:#FAFAFA;
-  --lav:#525252;--lav-soft:#A3A3A3;--lav-pale:#FAFAFA;
-  --rose:#D54834;--rose-soft:#F0B5AD;--rose-pale:#FFFFFF;
-  --cream:#FFFFFF;--cream-2:#FAFAFA;
-  --ink:#0A0A0A;--ink-2:#525252;--ink-3:#A3A3A3;
-  --line:#E5E5E5;
-  background:#FFFFFF !important;
-  font-family:'Inter','Apple SD Gothic Neo',sans-serif;letter-spacing:-0.01em;color:var(--ink);
-  -webkit-font-smoothing:antialiased;
-}
-body.minimal .whn-label,body.minimal .llc-date,body.minimal .sp-title,body.minimal .brand,body.minimal .sb-title,body.minimal .sb-user-name,body.minimal .month-nav-label,body.minimal .ml-title,body.minimal .day-card-day,body.minimal .login-title{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;}
-body.minimal .sp-title{font-weight:800;text-transform:uppercase;letter-spacing:0.1em;font-size:11px;}
-body.minimal .memo-area{font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;font-weight:500;color:#0A0A0A;}
-body.minimal .left-live-card,body.minimal .sp-card,body.minimal .month-list-card,body.minimal .month-grid,body.minimal .day-card,body.minimal .login-card{border:1px solid #E5E5E5 !important;box-shadow:none !important;border-radius:6px !important;background:#FFFFFF !important;}
-body.minimal .sp-card.s-daily,body.minimal .sp-card.s-last,body.minimal .sp-card.s-this,body.minimal .sp-card.s-memo-work,body.minimal .sp-card.s-memo-life{background:#FFFFFF !important;}
-body.minimal .view-tabs,body.minimal .week-header-nav{background:#FFFFFF;border:1px solid #E5E5E5;border-radius:6px;backdrop-filter:none;}
-body.minimal .view-tab.active{background:#0A0A0A;color:#FFFFFF;}
-body.minimal .left-filter-btn{background:#FFFFFF;border:1px solid #E5E5E5;color:#525252;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:10px;}
-body.minimal .left-filter-btn.active{background:#0A0A0A;color:#FFFFFF;border-color:#0A0A0A;box-shadow:none;}
-body.minimal .nav-btn{background:#FFFFFF;border:1px solid #E5E5E5;color:#0A0A0A;}
-body.minimal .nav-today-btn{background:#0A0A0A;color:#FFFFFF;border-radius:6px;text-transform:uppercase;letter-spacing:0.04em;font-size:11px;}
-body.minimal .left-add-btn{background:#0A0A0A;color:#FFFFFF;border:1px solid #0A0A0A;border-radius:6px;}
-body.minimal .menu-btn{background:#FFFFFF;border:1px solid #E5E5E5;color:#0A0A0A;}
-body.minimal .brand-mark{background:#0A0A0A;color:#FFFFFF;border-radius:6px;}
-body.minimal .brand-sub{color:#A3A3A3;letter-spacing:0.12em;}
-body.minimal .left-live-card{background:#FFFFFF !important;}
-body.minimal .llc-tag{color:#D54834;}
-body.minimal .llc-tag::before{background:#D54834;}
-body.minimal .llc-time{font-family:'DM Mono',monospace;color:#0A0A0A;font-weight:500;}
-body.minimal .llc-divider{background:#E5E5E5;}
-body.minimal .sp-add{background:#FFFFFF;border:1px solid #E5E5E5;color:#525252;border-radius:4px;}
-/* 평일/주말 day-card 통일 — 모두 흰색, 컬러는 dot에만 */
-body.minimal .day-card[data-dow="1"],
-body.minimal .day-card[data-dow="2"],
-body.minimal .day-card[data-dow="3"],
-body.minimal .day-card[data-dow="4"],
-body.minimal .day-card[data-dow="5"],
-body.minimal .day-card[data-dow="6"],
-body.minimal .day-card[data-dow="0"]{background:#FFFFFF !important;box-shadow:none !important;}
-body.minimal .day-card[data-today="1"]{background:#F5F5F5 !important;}
-body.minimal .day-card[data-dow="1"] .dot,
-body.minimal .day-card[data-dow="2"] .dot,
-body.minimal .day-card[data-dow="3"] .dot,
-body.minimal .day-card[data-dow="4"] .dot,
-body.minimal .day-card[data-dow="5"] .dot{background:#0A0A0A !important;}
-body.minimal .day-card[data-dow="6"] .dot{background:#2E5BBF !important;}
-body.minimal .day-card[data-dow="0"] .dot{background:#D54834 !important;}
-body.minimal .day-card[data-today="1"] .dot{background:#D54834 !important;}
-body.minimal .day-card-pill{background:#FFFFFF;border:1px solid #E5E5E5;color:#0A0A0A;font-weight:600;}
-body.minimal .day-card-pill.today{background:#0A0A0A;color:#FFFFFF;}
-/* 월간 그리드 */
-body.minimal .month-grid{background:#FFFFFF !important;}
-body.minimal .month-day{border-color:#F0F0F0;}
-body.minimal .month-day:hover{background:#FAFAFA;}
-body.minimal .month-day.today-cell{background:#F5F5F5;}
-body.minimal .month-day.today-cell .day-num{background:#0A0A0A;color:#FFFFFF;}
-body.minimal .month-day.sun-col .day-num{color:#D54834;}
-body.minimal .month-day.sat-col .day-num{color:#2E5BBF;}
-body.minimal .month-dow{background:#FAFAFA;color:#0A0A0A;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;}
-body.minimal .month-dow.sun{color:#D54834;}
-body.minimal .month-dow.sat{color:#2E5BBF;}
-body.minimal .month-list-card{background:#FFFFFF;}
-body.minimal .ml-item:hover{background:#FAFAFA;}
-body.minimal .ml-date{color:#0A0A0A;font-weight:800;}
-/* 사이드바 */
-body.minimal .sidebar{background:#FFFFFF;}
-body.minimal .sb-header{border-color:#E5E5E5;}
-body.minimal .sb-user-card{background:#FAFAFA;}
-body.minimal .sb-avatar{background:#0A0A0A;color:#FFFFFF;border-radius:6px;}
-body.minimal .sb-sync-card{background:#FAFAFA;}
-body.minimal .sb-btn{border:1px solid #E5E5E5;color:#0A0A0A;}
-body.minimal .sb-btn:hover{background:#F5F5F5;border-color:#0A0A0A;}
-body.minimal .sb-btn.danger{color:#D54834;border-color:#F0B5AD;}
-body.minimal .sb-btn.danger:hover{background:#FFF0EC;}
-body.minimal .modal-box{background:#FFFFFF !important;border:1px solid #E5E5E5;border-radius:8px !important;}
-body.minimal .color-dot{border:1px solid #E5E5E5;}
-body.minimal .mob-bar{background:#FFFFFF;border-bottom:1px solid #E5E5E5;}
-body.minimal .mob-vtab.active,body.minimal .mob-fbtn.active{background:#0A0A0A;color:#FFFFFF;}
-body.minimal .mob-tabbar{background:#FFFFFF;border-top:1px solid #E5E5E5;}
-body.minimal .mtb-fab{background:#0A0A0A;color:#FFFFFF;}
-
-/* 테마 세그먼트 컨트롤 (2x2 grid) */
-.theme-seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:rgba(255,255,255,0.5);border:1.5px solid var(--line);border-radius:14px;padding:3px;}
-body.dark .theme-seg{background:rgba(255,255,255,0.06);border-color:var(--d-line);}
-body.editorial .theme-seg{background:#FBF7EE;border:1.5px solid #1F1A1A;border-radius:8px;}
-body.minimal .theme-seg{background:#FFFFFF;border:1px solid #E5E5E5;border-radius:6px;}
-.theme-seg-btn{border:none;background:transparent;font-family:inherit;font-weight:700;font-size:11px;padding:8px 0;border-radius:10px;cursor:pointer;color:var(--ink-2);}
-body.dark .theme-seg-btn{color:var(--d-ink-2);}
-body.editorial .theme-seg-btn{color:#4A4040;border-radius:6px;}
-body.minimal .theme-seg-btn{color:#525252;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:10px;}
-.theme-seg-btn.active{background:var(--ink);color:var(--cream);}
-body.dark .theme-seg-btn.active{background:var(--yellow);color:var(--ink);}
-body.editorial .theme-seg-btn.active{background:#1F1A1A;color:#D9C3E0;}
-body.minimal .theme-seg-btn.active{background:#0A0A0A;color:#FFFFFF;}
 
 /* ── 사이드바 ── */
 .sidebar-overlay{position:fixed;inset:0;background:rgba(42,36,24,0.4);z-index:499;opacity:0;pointer-events:none;transition:opacity .25s;}
@@ -580,14 +384,8 @@ body.dark .mtb-fab .mtb-ico{color:var(--ink);}
       </div>
     </div>
     <div class="sb-section">
-      <div class="sb-section-label">테마</div>
-      <div class="theme-seg" id="themeSeg" style="margin-bottom:10px;">
-        <button class="theme-seg-btn" data-theme="light" onclick="setTheme('light')">☀️ 기본</button>
-        <button class="theme-seg-btn" data-theme="dark" onclick="setTheme('dark')">🌙 다크</button>
-        <button class="theme-seg-btn" data-theme="editorial" onclick="setTheme('editorial')">✦ 라일락</button>
-        <button class="theme-seg-btn" data-theme="minimal" onclick="setTheme('minimal')">▢ 미니멀</button>
-      </div>
       <div class="sb-section-label">설정</div>
+      <button class="sb-btn" id="sbThemeBtn" onclick="toggleTheme()">🌙 다크모드</button>
     </div>
     <button class="sb-btn danger" onclick="doSignOut()">🚪 로그아웃</button>
   </div>
@@ -861,18 +659,11 @@ function getVisibleItems(baseItems,fromYMD,toYMD2){
 }
 
 // ── 테마 ──
-const VALID_THEMES=['light','dark','editorial','minimal'];
-function setTheme(t){
-  if(!VALID_THEMES.includes(t))t='light';
-  _theme=t;
-  document.body.className=(t==='light'?'':t);
-  document.querySelectorAll('#themeSeg .theme-seg-btn').forEach(b=>{
-    b.classList.toggle('active',b.dataset.theme===t);
-  });
-  try{localStorage.setItem('wTheme',t);}catch{}
-}
-function toggleTheme(){ /* 호환용 — 라이트↔다크 토글 */
-  setTheme(_theme==='dark'?'light':'dark');
+function toggleTheme(){
+  _theme=_theme==='dark'?'light':'dark';
+  document.body.className=_theme;
+  document.getElementById('sbThemeBtn').textContent=_theme==='dark'?'☀️ 라이트모드':'🌙 다크모드';
+  try{localStorage.setItem('wTheme',_theme);}catch{}
 }
 
 // ── 뷰 전환 ──
@@ -1028,7 +819,7 @@ function renderWeek(){
     if(todosNone.length){itemsHTML+=todosNone.map(mkTodoRow).join('');}
     if(!itemsHTML)itemsHTML='<div class="empty-hint">— 일정 없음</div>';
     const holiday=getHoliday(ymd);
-    return `<div class="day-card${isToday?' today-card':''}" data-dow="${dow}"${isToday?' data-today="1"':''}><div class="day-card-head"><div class="day-card-day"><span class="dot"></span><span>${DOW_KO[dow]}요일${holiday?` · ${holiday}`:''}</span></div><div class="day-card-pill ${isToday?'today':''}">${d.getMonth()+1}/${d.getDate()}</div></div><div class="day-card-inner"><div class="checklist">${itemsHTML}</div></div><button class="add-item-btn" onclick="openModal(null,'${ymd}')">＋ 추가</button></div>`;
+    return `<div class="day-card" data-dow="${dow}"><div class="day-card-head"><div class="day-card-day"><span class="dot"></span><span>${DOW_KO[dow]}요일${holiday?` · ${holiday}`:''}</span></div><div class="day-card-pill ${isToday?'today':''}">${d.getMonth()+1}/${d.getDate()}</div></div><div class="day-card-inner"><div class="checklist">${itemsHTML}</div></div><button class="add-item-btn" onclick="openModal(null,'${ymd}')">＋ 추가</button></div>`;
   }
   let gridHTML='';for(let i=0;i<5;i++)gridHTML+=buildDayCard(i);
   document.getElementById('weekDaysGrid').innerHTML=gridHTML;
@@ -1255,7 +1046,8 @@ function closePopup(){const p=document.getElementById('itemPopup');if(p)p.remove
 // ── 초기화 ──
 (function init(){
   try{_theme=localStorage.getItem('wTheme')||'light';}catch{}
-  setTheme(_theme);
+  document.body.className=_theme;
+  document.getElementById('sbThemeBtn').textContent=_theme==='dark'?'☀️ 라이트모드':'🌙 다크모드';
   render();
   setInterval(render,60000);
 })();

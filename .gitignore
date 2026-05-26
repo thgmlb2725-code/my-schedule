@@ -1,3 +1,6 @@
 layout-preview.html
 .firebase/
 node_modules/
+.claude/
+.omc/
+theme-preview/
